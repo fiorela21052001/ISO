@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="es-ES">
+  <info>
+    <title>ISO 690 personalizado - TARQUE</title>
+    <id>http://www.zotero.org/styles/iso-690-personalizado-tarque</id>
+    <link href="http://www.zotero.org/styles/iso-690-personalizado-tarque" rel="self"/>
+    <author><name>Estilo personalizado</name></author>
+    <category citation-format="author-date"/>
+    <category field="engineering"/>
+    <summary>Formato personalizado basado en el ejemplo de referencia proporcionado.</summary>
+    <updated>2026-10-27T00:00:00+00:00</updated>
+  </info>
+  <locale xml:lang="es-ES">
+    <terms>
+      <term name="and">y</term>
+      <term name="et-al">et al.</term>
+    </terms>
+  </locale>
+  <macro name="author">
+    <names variable="author" delimiter=" y ">
+      <name name-as-sort-order="all" sort-separator=", " initialize="false" delimiter=" y " delimiter-precedes-last="never"/>
+      <substitute><text variable="editor"/></substitute>
+    </names>
+  </macro>
+  <macro name="year">
+    <date variable="issued"><date-part name="year"/></date>
+  </macro>
+  <citation et-al-min="3" et-al-use-first="1">
+    <layout prefix="(" suffix=")" delimiter="; ">
+      <group delimiter=", ">
+        <names variable="author">
+          <name form="short" delimiter=" y " delimiter-precedes-last="never"/>
+        </names>
+        <text macro="year"/>
+      </group>
+    </layout>
+  </citation>
+  <bibliography hanging-indent="false" entry-spacing="1">
+    <sort><key macro="author"/><key macro="year"/></sort>
+    <layout>
+      <text macro="author" suffix=". "/>
+      <text variable="title" suffix=". "/>
+      <text variable="container-title" font-style="italic"/>
+      <text value=" [en línea]."/>
+      <group prefix=" " delimiter=", ">
+        <group delimiter=" ">
+          <text value="Vol."/>
+          <text variable="volume"/>
+        </group>
+        <group delimiter=" ">
+          <text value="n.º"/>
+          <text variable="issue"/>
+        </group>
+        <group delimiter=" ">
+          <text value="p."/>
+          <text variable="page"/>
+        </group>
+        <group delimiter=" ">
+          <text value="p."/>
+          <text variable="number"/>
+        </group>
+        <text macro="year"/>
+      </group>
+      <date variable="accessed" prefix=" [consultado el " suffix="]">
+        <date-part name="day" suffix=" de "/>
+        <date-part name="month" form="long" suffix=" de "/>
+        <date-part name="year"/>
+      </date>
+      <text value="."/>
+      <group prefix=" Disponible en: ">
+        <choose>
+          <if variable="DOI">
+            <text variable="DOI" prefix="https://doi.org/"/>
+          </if>
+          <else>
+            <text variable="URL"/>
+          </else>
+        </choose>
+      </group>
+      <text variable="ISSN" prefix=". ISSN " suffix="."/>
+    </layout>
+  </bibliography>
+</style>
