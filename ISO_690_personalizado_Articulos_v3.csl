@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="es-ES">
+  <info>
+    <title>ISO 690 personalizado - Articulos v3 (et al. desde 4 autores)</title>
+    <id>http://www.zotero.org/styles/iso-690-personalizado-articulos-v3</id>
+    <link href="http://www.zotero.org/styles/iso-690-personalizado-articulos-v3" rel="self"/>
+    <author><name>Estilo bibliografico personalizado</name></author>
+    <category citation-format="author-date"/>
+    <category field="engineering"/>
+    <updated>2026-10-28T00:00:00+00:00</updated>
+  </info>
+  <locale xml:lang="es-ES">
+    <terms><term name="and">y</term><term name="et-al">et al.</term></terms>
+  </locale>
+  <macro name="author">
+    <names variable="author" et-al-min="4" et-al-use-first="1">
+      <name form="long" name-as-sort-order="all" sort-separator=", " delimiter="; " and="text" delimiter-precedes-last="never" initialize="false">
+        <name-part name="family" text-case="uppercase"/>
+        <name-part name="given"/>
+      </name>
+      <et-al font-style="italic"/>
+      <substitute><names variable="editor"/><text variable="publisher"/></substitute>
+    </names>
+  </macro>
+  <macro name="year"><date variable="issued"><date-part name="year"/></date></macro>
+  <macro name="online-access">
+    <date variable="accessed" prefix=" [consultado el " suffix="]">
+      <date-part name="day" suffix=" de "/><date-part name="month" form="long" suffix=" de "/><date-part name="year"/>
+    </date>
+  </macro>
+  <macro name="link">
+    <choose><if variable="DOI"><text variable="DOI" prefix="https://doi.org/"/></if><else><text variable="URL"/></else></choose>
+  </macro>
+  <citation et-al-min="3" et-al-use-first="1">
+    <layout prefix="(" suffix=")" delimiter="; ">
+      <group delimiter=", "><names variable="author"><name form="short" delimiter=" y " delimiter-precedes-last="never"/><et-al font-style="italic"/></names><text macro="year"/></group>
+    </layout>
+  </citation>
+  <bibliography>
+    <sort><key macro="author"/><key macro="year"/></sort>
+    <layout>
+      <text macro="author" suffix=". "/>
+      <choose>
+        <if type="article-journal article-magazine article-newspaper" match="any">
+          <text variable="title" suffix=". "/>
+          <text variable="container-title" font-style="italic"/>
+          <text value=" [en línea]."/>
+          <group prefix=" " delimiter=", ">
+            <group delimiter=" "><text value="Vol."/><text variable="volume"/></group>
+            <group delimiter=" "><text value="n.º"/><text variable="issue"/></group>
+            <group delimiter=" "><text value="p."/><text variable="page"/></group>
+            <group delimiter=" "><text value="art. n.º"/><text variable="number"/></group>
+            <text macro="year"/>
+          </group>
+        </if>
+        <else>
+          <text variable="title" font-style="italic" suffix=" [en línea]. "/>
+          <group delimiter=": "><text variable="publisher-place"/><text variable="publisher"/></group>
+          <text macro="year" prefix=", "/>
+        </else>
+      </choose>
+      <text macro="online-access"/>
+      <text value=". Disponible en: "/>
+      <text macro="link"/>
+      <text variable="ISSN" prefix=". ISSN " />
+      <text value="."/>
+    </layout>
+  </bibliography>
+</style>
