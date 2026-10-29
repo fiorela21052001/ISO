@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="es-ES">
+  <info>
+    <title>ISO 690 personalizado - Articulos v9 - Citas narrativas y parenteticas - Consulta fija 24 octubre 2026</title>
+    <id>http://www.zotero.org/styles/iso-690-personalizado-articulos-v9</id>
+    <link href="http://www.zotero.org/styles/iso-690-personalizado-articulos-v9" rel="self"/>
+    <author><name>Estilo bibliografico personalizado</name></author>
+    <category citation-format="author-date"/>
+    <updated>2026-10-27T00:00:00+00:00</updated>
+  </info>
+  <macro name="author">
+    <names variable="author">
+      <name form="long" name-as-sort-order="all" sort-separator=", " delimiter="; " and="text" delimiter-precedes-last="never" initialize="false">
+        <name-part name="family" text-case="uppercase"/>
+      </name>
+      <et-al font-style="italic"/>
+    </names>
+  </macro>
+  <macro name="year">
+    <date variable="issued"><date-part name="year"/></date>
+  </macro>
+  <citation et-al-min="4" et-al-use-first="1">
+    <layout prefix="(" suffix=")" delimiter="; ">
+      <group delimiter=", ">
+        <names variable="author"><name form="short" delimiter="; " and="text" delimiter-precedes-last="never"/><et-al font-style="italic"/></names>
+        <text macro="year"/>
+        <group delimiter=" "><label variable="locator" form="short"/><text variable="locator"/></group>
+      </group>
+    </layout>
+  </citation>
+  <bibliography et-al-min="4" et-al-use-first="1">
+    <sort><key macro="author"/><key macro="year"/></sort>
+    <layout>
+      <text macro="author" suffix=". "/>
+      <text variable="title" suffix=". "/>
+      <text variable="container-title" font-style="italic"/>
+      <text value=" [en línea]. "/>
+      <group delimiter=", ">
+        <group delimiter=" "><text value="Vol."/><text variable="volume"/></group>
+        <group delimiter=" "><text value="p."/><text variable="page"/></group>
+        <text macro="year"/>
+      </group>
+      <text value=" [consultado el 24 de octubre de 2026]"/>
+      <text value=". Disponible en: "/>
+      <choose>
+        <if variable="DOI"><text variable="DOI" prefix="https://doi.org/"/></if>
+        <else><text variable="URL"/></else>
+      </choose>
+      <text variable="ISSN" prefix=". ISSN " suffix="."/>
+    </layout>
+  </bibliography>
+</style>
